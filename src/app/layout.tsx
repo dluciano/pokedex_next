@@ -1,6 +1,8 @@
 import localFont from "@next/font/local";
 import { Montserrat } from "@next/font/google";
+import { NavBar } from "./components";
 import "./globals.css";
+import styles from "./layout.module.css";
 
 //  @see: https://beta.nextjs.org/docs/optimizing/fonts#local-fonts
 const montserrat = Montserrat({
@@ -19,11 +21,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const containerClass ="lg:mx-auto lg:max-w-5xl lg:container";
   return (
     <html lang="en" className={`${montserrat.variable} ${din.variable}`}>
       <head />
-      <body className="lg:mx-auto lg:max-w-5xl lg:container min-h-screen border">
-        {children}
+      <body>
+        <header className="w-full bg-pokeGray3">
+          <NavBar className={`${containerClass}`}/>
+        </header>
+        <main className={`${containerClass} bg-white ${styles.main}`}>
+          {children}
+        </main>
       </body>
     </html>
   );

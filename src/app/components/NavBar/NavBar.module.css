@@ -1,0 +1,19 @@
+.navbar {
+  max-height: var(--navbar-width);
+  min-height: var(--navbar-width);
+  height: var(--navbar-width);
+}
+.navbar .navbar_title {
+  --navbar-top-padding: 16px;
+  padding: var(--navbar-top-padding) 0;
+  font-size: calc(
+    var(--navbar-width) - var(--navbar-top-padding) - var(--navbar-top-padding)
+  );
+}
+.navbar .navbar_icon {
+  --navbar-icon-size: 35px;
+  min-height: var(--navbar-icon-size);
+  min-width: var(--navbar-icon-size);
+  max-width: var(--navbar-icon-size);
+  max-height: var(--navbar-icon-size);
+}
