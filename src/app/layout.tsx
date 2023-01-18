@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} ${din.variable}`}>
       <head />
-      <body>
+      <body className={`${styles.body_background}`}>
         <header className="w-full bg-pokeGray3">
           <NavBar className={`${containerClass}`}/>
         </header>

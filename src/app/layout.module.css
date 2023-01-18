@@ -1,3 +1,8 @@
+.body_background{
+    background-image: url("../../public/images/Background_2.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .main{
     min-height: calc(100vh - var(--navbar-width));
 }
