@@ -23,7 +23,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components": ["./src/app/components"],
-      "@components/*": ["./src/app/components/*"]
+      "@components/*": ["./src/app/components/*"],
+      "@pokeapi":["./src/api/pokeapi"],
+      "@pokeapi/*":["./src/api/pokeapi/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

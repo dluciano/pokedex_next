@@ -1,0 +1,5 @@
+query getListOfPokemonsByPage($offset: Int, $limit: Int) {
+  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {name: asc}) {
+    name
+  }
+}
