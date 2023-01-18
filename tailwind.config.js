@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -18,6 +20,17 @@ module.exports = {
       fontSize:{
         "1_3": "1.2rem",
         "3_2": "3.2rem"
+      },
+      fontFamily:{
+        // @see: https://beta.nextjs.org/docs/optimizing/fonts#local-fonts
+        // @see: https://tailwindcss.com/docs/font-family#customizing-your-theme
+        /*
+            Note that Tailwind does not automatically escape font names for you. 
+            If you’re using a font that contains an invalid identifier, 
+            wrap it in quotes or escape the invalid characters.
+        */
+        montserrat: ['var(--font-montserrat)', ...defaultTheme.fontFamily.sans],
+        din: ['var(--font-din)', ...defaultTheme.fontFamily.sans]
       }
     },
   },
