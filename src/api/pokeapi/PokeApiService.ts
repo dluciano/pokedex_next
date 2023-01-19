@@ -2,7 +2,7 @@ import "server-only";
 import { GraphQLClient } from "graphql-request";
 import { getSdk } from "./generated/graphql";
 
-type PokemonListDetail = {
+export type PokemonListDetail = {
   name: string;
   id: number;
   types: string[];
