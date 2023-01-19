@@ -25,7 +25,9 @@
       "@components": ["./src/app/components"],
       "@components/*": ["./src/app/components/*"],
       "@pokeapi":["./src/api/pokeapi"],
-      "@pokeapi/*":["./src/api/pokeapi/*"]
+      "@pokeapi/*":["./src/api/pokeapi/*"],
+      "@lib": ["./src/lib"],
+      "@lib/*": ["./src/lib/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
