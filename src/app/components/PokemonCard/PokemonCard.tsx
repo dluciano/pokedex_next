@@ -55,7 +55,7 @@ export const PokemonCard = ({
 }: PokemonCardProps) => {
   return (
     <article
-      className={`w-[216px] h-[238px] bg-pokeCream relative rounded-md ${
+      className={`w-[216px] h-[238px] bg-pokeCream relative rounded-md shadow-md ${
         className || ""
       }`}
       {...props}
