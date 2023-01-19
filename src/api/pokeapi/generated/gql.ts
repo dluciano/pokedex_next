@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}": types.GetListOfPokemonsByPageDocument,
+    "query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemonsprites {\n      sprites\n    }\n    pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {name: asc}}) {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}": types.GetListOfPokemonsByPageDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}"): (typeof documents)["query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}"];
+export function graphql(source: "query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemonsprites {\n      sprites\n    }\n    pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {name: asc}}) {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}"): (typeof documents)["query getListOfPokemonsByPage($offset: Int, $limit: Int) {\n  pokemon_v2_pokemon(offset: $offset, limit: $limit, order_by: {id: asc}) {\n    name\n    id\n    pokemon_v2_pokemonsprites {\n      sprites\n    }\n    pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {name: asc}}) {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
