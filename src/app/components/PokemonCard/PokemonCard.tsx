@@ -66,7 +66,7 @@ export const PokemonCard = ({
         </Text>
         <H1 className="capitalize inline-block text-ellipsis overflow-hidden whitespace-nowrap w-[140px] align-top">{name}</H1>
       </header>
-      <main className="h-[183px] w-full flex items-center justify-center relative p-2">        
+      <main className="h-[186px] w-full flex items-center justify-center relative p-2">        
         {image && (
           <Image
             src={image}
