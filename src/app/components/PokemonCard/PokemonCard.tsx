@@ -38,8 +38,7 @@ const PokeType = ({ type }: { type: string }) => {
   );
 };
 
-export const PokemonCard = ({ name, id, types, image }: PokemonCardProps) => {
-  console.log(image);
+export const PokemonCard = ({ name, id, types, image }: PokemonCardProps) => {  
   return (
     <article className="mr-[13px] w-[216px] h-[238px] mb-[60px] bg-pokeCream relative rounded-md inline-block">
       <header className="pt-[6px] pl-[6px]">
