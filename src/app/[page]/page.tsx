@@ -17,8 +17,9 @@ export default async function Pokemons({
   params,
 }: {
   params: { page: string };
-}) {  
+}) {
   const page = parseInt(params.page);
+  const nextPage = `\\${page + 1}`;
   const {
     data: { pokemons },
   } = await getPokemonPage(page);
@@ -35,7 +36,7 @@ export default async function Pokemons({
       <footer className="text-center w-full">
         {page < 3 && (
           <Link
-            href={`\\${page + 1}`}
+            href={nextPage}
             className="w-[216px] h-[44px] bg-pokeBlue font-montserrat font-bold rounded-md mb-[54px] inline-block p-2"
           >
             LOAD MORE
