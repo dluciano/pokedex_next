@@ -17,6 +17,7 @@ const PokeType = ({ type }: { type: string }) => {
   const pokemonTypeToBgClass = (type: string) => {
     const colourClassByType: any = {
       grass: "bg-pokeGreen",
+      bug: "bg-pokeGreen",
       poison: "bg-pokePurple",
       fire: "bg-pokeOrange",
       water: "bg-pokeBlue",
