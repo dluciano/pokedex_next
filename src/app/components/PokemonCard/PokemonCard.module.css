@@ -1,7 +1,10 @@
 .pokeType:nth-child(1){
     border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    
     border-bottom-right-radius: 0;
+}
+.pokeType:nth-child(1).hasTwoPokeTypes:nth-child(1) {
+    border-top-right-radius: 0;
 }
 .pokeType:nth-child(2){
     border-top-left-radius: 0;

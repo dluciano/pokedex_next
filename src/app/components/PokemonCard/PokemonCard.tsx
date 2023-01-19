@@ -11,7 +11,7 @@ type PokemonCardProps = {
   image: string | undefined;
 };
 
-const PokeType = ({ type }: { type: string }) => {
+const PokeType = ({ type, hasTwoPokeTypes }: { type: string, hasTwoPokeTypes?: boolean }) => {
   // be careful if you want to move this method from here.
   // I experienced problems while using it in a separate file
   const pokemonTypeToBgClass = (type: string) => {
@@ -32,7 +32,7 @@ const PokeType = ({ type }: { type: string }) => {
     <H4
       className={`uppercase w-1/2 h-[22px] inline-block text-center align-center rounded-md ${pokemonTypeToBgClass(
         type
-      )} ${styles.pokeType} `}
+      )} ${styles.pokeType} ${hasTwoPokeTypes && styles.hasTwoPokeTypes} `}
     >
       {type}
     </H4>
@@ -55,7 +55,7 @@ export const PokemonCard = ({ name, id, types, image }: PokemonCardProps) => {
       </main>
       <footer className="absolute bottom-0 w-full">
         {types.map((type) => (
-          <PokeType key={uuidv4()} type={type} />
+          <PokeType key={uuidv4()} type={type} hasTwoPokeTypes={types.length > 1} />
         ))}
       </footer>
     </article>
