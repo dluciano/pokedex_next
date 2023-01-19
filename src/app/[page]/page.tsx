@@ -34,7 +34,7 @@ export default async function Pokemons({
         ))}
       </main>
       <footer className="text-center w-full">
-        {page < 3 && (
+        {pokemons.length === 12 && (
           <Link
             href={nextPage}
             className="w-[216px] h-[44px] bg-pokeBlue font-montserrat font-bold rounded-md mb-[54px] inline-block p-2"
