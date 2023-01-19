@@ -1,1 +1,1 @@
-export * from "./PokemonGrid";
+export { default as PokemonGrid } from "./PokemonGrid";
