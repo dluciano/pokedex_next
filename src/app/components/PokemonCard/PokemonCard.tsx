@@ -3,15 +3,24 @@ import { H1, H4, Text } from "../typography";
 import Image from "next/image";
 import { numberToThreeDigitsLeadingZeros } from "@lib";
 import styles from "./PokemonCard.module.css";
+import { HTMLAttributes } from "react";
 
 type PokemonCardProps = {
-  name: string;
-  id: number;
-  types: string[];
-  image: string | undefined;
-};
+  pokemon: {
+    name: string;
+    id: number;
+    types: string[];
+    image: string | undefined;
+  };
+} & HTMLAttributes<HTMLElement>;
 
-const PokeType = ({ type, hasTwoPokeTypes }: { type: string, hasTwoPokeTypes?: boolean }) => {
+const PokeType = ({
+  type,
+  hasTwoPokeTypes,
+}: {
+  type: string;
+  hasTwoPokeTypes?: boolean;
+}) => {
   // be careful if you want to move this method from here.
   // I experienced problems while using it in a separate file
   const pokemonTypeToBgClass = (type: string) => {
@@ -39,23 +48,41 @@ const PokeType = ({ type, hasTwoPokeTypes }: { type: string, hasTwoPokeTypes?: b
   );
 };
 
-export const PokemonCard = ({ name, id, types, image }: PokemonCardProps) => {  
+export const PokemonCard = ({
+  pokemon: { name, id, types, image },
+  className,
+  ...props
+}: PokemonCardProps) => {
   return (
-    <article className="mr-[13px] w-[216px] h-[238px] mb-[60px] bg-pokeCream relative rounded-md inline-block">
-      <header className="pt-[6px] pl-[6px]">
-        <Text className="inline-block mr-1">
+    <article
+      className={`w-[216px] h-[238px] bg-pokeCream relative rounded-md ${
+        className || ""
+      }`}
+      {...props}
+    >
+      <header className="pt-[6px] pl-[6px] w-full">
+        <Text className="inline-block mr-1 align-top">
           &#35;{numberToThreeDigitsLeadingZeros(id)}
         </Text>
-        <H1 className="capitalize inline-block">{name}</H1>
+        <H1 className="capitalize inline-block text-ellipsis overflow-hidden whitespace-nowrap w-[140px] align-top">{name}</H1>
       </header>
-      <main className="h-[183px] flex items-center justify-center">
+      <main className="h-[183px] w-full flex items-center justify-center relative p-2">        
         {image && (
-          <Image src={image} alt={`${name} photo`} width={190} height={171} />
+          <Image
+            src={image}
+            alt={`${name} photo`}
+            fill={true}
+            
+          />
         )}
       </main>
-      <footer className="absolute bottom-0 w-full">
+      <footer className="w-full">
         {types.map((type) => (
-          <PokeType key={uuidv4()} type={type} hasTwoPokeTypes={types.length > 1} />
+          <PokeType
+            key={uuidv4()}
+            type={type}
+            hasTwoPokeTypes={types.length > 1}
+          />
         ))}
       </footer>
     </article>
