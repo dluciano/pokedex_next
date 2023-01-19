@@ -10,7 +10,7 @@ module.exports = {
         pokeGray1: "#D8D8D8",
         pokeGray2: "#606C78",
         pokeGray3: "#1F2532",
-        pokeGray4: "B0B9C4",
+        pokeGray4: "#B0B9C4",
         pokeBlue: "#4A90E2",
         pokePurple: "#BE93E7",
         pokeOrange: "#E85B0E",
