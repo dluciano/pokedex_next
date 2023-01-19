@@ -4,8 +4,8 @@ import { PokemonCard } from "@components";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 
-const getPokemonPage = async () => {
-  const pokemons = await pokeApiService.fetchNext(0, 12);
+const getPokemonPage = async (page: number) => {
+  const pokemons = await pokeApiService.fetchNext(page, 12);
   return {
     data: {
       pokemons,
@@ -13,10 +13,15 @@ const getPokemonPage = async () => {
   };
 };
 
-export default async function Home() {
+export default async function Pokemons({
+  params,
+}: {
+  params: { page: string };
+}) {  
+  const page = parseInt(params.page);
   const {
     data: { pokemons },
-  } = await getPokemonPage();
+  } = await getPokemonPage(page);
   return (
     <div className={`pl-[60px]`}>
       <header>
@@ -28,12 +33,14 @@ export default async function Home() {
         ))}
       </main>
       <footer className="text-center w-full">
-        <Link
-          href="/1"
-          className="w-[216px] h-[44px] bg-pokeBlue font-montserrat font-bold rounded-md mb-[54px] inline-block p-2"
-        >
-          LOAD MORE
-        </Link>
+        {page < 3 && (
+          <Link
+            href={`\\${page + 1}`}
+            className="w-[216px] h-[44px] bg-pokeBlue font-montserrat font-bold rounded-md mb-[54px] inline-block p-2"
+          >
+            LOAD MORE
+          </Link>
+        )}
       </footer>
     </div>
   );

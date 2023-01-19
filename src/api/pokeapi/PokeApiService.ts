@@ -13,10 +13,10 @@ class PokeApiService {
   constructor() {
     this.sdk = getSdk(new GraphQLClient(process.env.POKEAPI_GRAPHQL_URL));
   }
-  fetchNext: () => Promise<PokemonListDetail[]> = async () => {
+  fetchNext: (page:number, limit: number) => Promise<PokemonListDetail[]> = async (page = 0, limit = 12) => {
     const response = await this.sdk.getListOfPokemonsByPage({
-      offset: 0,
-      limit: 12,
+      offset: page * limit,
+      limit: limit,
     });
 
     const pokemons: PokemonListDetail[] = response.pokemon_v2_pokemon.map(
