@@ -10,7 +10,7 @@ type PokemonCardProps = {
     name: string;
     id: number;
     types: string[];
-    image: string | undefined;
+    image: string | null | undefined;
   };
 } & HTMLAttributes<HTMLElement>;
 
