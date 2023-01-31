@@ -25,5 +25,11 @@ export const NavBar: FC<HTMLAttributes<HTMLElement>> = ({ className }) => (
         POK&Eacute;DEX
       </h1>
     </Link>
+    <Link
+      className={`font-montserrat text-blue-400 inline-block h-full align-top underline-offset-1 float-right ${styles.navbar_privacy}`}
+      href="/privacy.html"
+    >
+      Privacy
+    </Link>
   </nav>
 );

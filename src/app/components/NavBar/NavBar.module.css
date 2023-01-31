@@ -17,3 +17,7 @@
   max-width: var(--navbar-icon-size);
   max-height: var(--navbar-icon-size);
 }
+.navbar .navbar_privacy {
+  --navbar-top-padding: 16px;
+  padding: var(--navbar-top-padding) 0;
+}
