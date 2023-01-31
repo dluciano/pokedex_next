@@ -20,7 +20,7 @@ class PokeApiService {
   }
 
   fetchNext: (page: number, limit: number) => Promise<PokemonListDetail[]> =
-    async (page = 0, limit = 12) => await this.fetchNextTsApi(page, limit);
+    async (page = 0, limit = 12) => await this.fetchNextGraphQl(page, limit);
 
   // https://github.com/Gabb-c/pokenode-ts
   private fetchNextTsApi: (
@@ -65,8 +65,13 @@ class PokeApiService {
             "other" in spriteObj &&
             "official-artwork" in spriteObj.other &&
             "front_default" in spriteObj.other["official-artwork"]
-          )
-            image = spriteObj.other["official-artwork"].front_default;
+          ){
+            // this was working and it suddenly stopped working, why? idk, maybe a bug
+            // image = spriteObj.other["official-artwork"].front_default;
+            // TODO: remove hack when GraphQL api is stable
+            const imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/";
+            image = `${imageUrl}${spriteObj.other["official-artwork"].front_default?.replace("/media/", "")}`;
+          }
         }
 
         return {
