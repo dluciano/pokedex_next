@@ -72,7 +72,7 @@ export const PokemonCard = ({
             src={image}
             alt={`${name} photo`}
             fill={true}
-            
+            sizes="216px"
           />
         )}
       </main>
