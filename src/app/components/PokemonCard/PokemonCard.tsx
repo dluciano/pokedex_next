@@ -59,21 +59,27 @@ export const PokemonCard = ({
         className || ""
       }`}
       {...props}
+      onClick={() => {
+        window.gtag("event", "select_item", {
+          event_label: "view pokemon",
+          event_category: "navigate to item",
+          description: `view pokemon ${name}`,
+          value: id,
+          items: name,
+        });
+      }}
     >
       <header className="pt-[6px] pl-[6px] w-full">
         <Text className="inline-block mr-1 align-top">
           &#35;{numberToThreeDigitsLeadingZeros(id)}
         </Text>
-        <H1 className="capitalize inline-block text-ellipsis overflow-hidden whitespace-nowrap w-[140px] align-top">{name}</H1>
+        <H1 className="capitalize inline-block text-ellipsis overflow-hidden whitespace-nowrap w-[140px] align-top">
+          {name}
+        </H1>
       </header>
-      <main className="h-[186px] w-full flex items-center justify-center relative p-2">        
+      <main className="h-[186px] w-full flex items-center justify-center relative p-2">
         {image && (
-          <Image
-            src={image}
-            alt={`${name} photo`}
-            fill={true}
-            sizes="216px"
-          />
+          <Image src={image} alt={`${name} photo`} fill={true} sizes="216px" />
         )}
       </main>
       <footer className="w-full">

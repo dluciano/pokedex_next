@@ -4,6 +4,7 @@ import { PokemonCard } from "@components";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { useEffect } from "react";
+import { useReportViewPage } from "@hooks";
 
 export default function PokemonGrid({
   pokemons,
@@ -12,10 +13,12 @@ export default function PokemonGrid({
   pokemons: PokemonListDetail[];
   page: number;
 }) {
+  useReportViewPage();
+
   useEffect(() => {
-    if (typeof window !== "undefined")
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   const nextPage = `\\${page + 1}`;
   return (
     <div className="p-8">
