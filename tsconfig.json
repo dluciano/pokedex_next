@@ -24,10 +24,12 @@
       "@/*": ["./src/*"],
       "@components": ["./src/app/components"],
       "@components/*": ["./src/app/components/*"],
-      "@pokeapi":["./src/api/pokeapi"],
-      "@pokeapi/*":["./src/api/pokeapi/*"],
+      "@pokeapi": ["./src/api/pokeapi"],
+      "@pokeapi/*": ["./src/api/pokeapi/*"],
       "@lib": ["./src/lib"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@hooks": ["./src/hooks"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
