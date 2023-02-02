@@ -6,20 +6,23 @@ export default function Head() {
       {/* <!-- Google tag (gtag.js) --> */}
       <Script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-7E2CEVR6RL"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
         strategy="afterInteractive"
       />
       <Script async id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-7E2CEVR6RL');`}
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", "${process.env.NEXT_PUBLIC_GA_TRACKING_ID}");
+        `}
       </Script>
 
       <Script
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4728445304550491"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_G_ADSENSE_CLIENT_ID}`}
         crossOrigin="anonymous"
         strategy="afterInteractive"
       />
