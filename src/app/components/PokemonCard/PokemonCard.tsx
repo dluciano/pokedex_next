@@ -79,7 +79,7 @@ export const PokemonCard = ({
       </header>
       <main className="h-[186px] w-full flex items-center justify-center relative p-2">
         {image && (
-          <Image src={image} alt={`${name} photo`} fill={true} sizes="216px" />
+          <Image src={image} alt={`${name} photo`} sizes="216px" width={216} height={186} className="w-full h-full" />
         )}
       </main>
       <footer className="w-full">
